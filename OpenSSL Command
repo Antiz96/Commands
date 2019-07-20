@@ -1,0 +1,14 @@
+#Check fo SSL Information
+openssl x509 -text -noout -in xxxx.crt
+openssl req -text -noout -in xxxx.csr
+
+#Check for Modulus
+openssl x509 -noout -modulus -in xxxx.crt
+openssl req -noout -modulus -in xxxx.crs
+openssl rsa -noout -modulus -in xxxx.key
+
+#Check for Validity
+openssl x509 -enddate -noout -in xxxx.crt
+
+#Keystore/Truststore/P12
+keytool -keystore xxxxx.jks -list
