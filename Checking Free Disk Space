@@ -1,0 +1,5 @@
+#Checking for Free Disk Space on a directory
+du -h --max-depth=1 /path
+
+#Checking for Free Disk Space on a mount point excluding some directories
+du -h --max-depth=1 /path --exclude /{dev,run,lib}
