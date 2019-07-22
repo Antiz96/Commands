@@ -1,0 +1,2 @@
+#Check for Free Disk Space on AIX
+du -g /path |sort -nr |head
