@@ -1,1 +1,5 @@
 cp /dev/null "filename"
+
+OR
+
+> "filename"
