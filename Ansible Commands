@@ -1,0 +1,2 @@
+#Doing an action to a remote host via Ansible (where "inventaire.ini" has the list of nodes)
+ansible -i inventaire.ini -m raw -a "yum install -y 'example'" 'hostname' --user 'username' --ask-pass
