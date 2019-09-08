@@ -13,6 +13,9 @@ ansible -i inventaire.ini -m user -a 'name=ansible password=encryptedchain' --us
 #Give ansible user sudo rights on all nodes contained in "inventaire.ini"
 ansible -i inventaire.ini -m user -a 'name=ansible groups=wheel append=yes ' --user root --ask-pass all
 
+#Copy public ssh key from NodeManage to Nodes
+ansible -i inventaire.ini -m authorized_key -a 'user=ansible state=present key="{{ lookup("file", "/home/ansible/.ssh/id_ecdsa.pub") }}"' --user ansible --ask-pass --become --ask-become-pass all
+
 #Doing an action to a specific remote host via Ansible (where "inventaire.ini" has the list of nodes)
 ansible -i inventaire.ini -m raw -a "yum install -y example" hostname --user username --ask-pass
 
