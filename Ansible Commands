@@ -1,5 +1,5 @@
 #Generate a crypted password for ansible user to deploy on nodes
-ansible localhost -i inventaire.ini -m debug -a "msg={{ 'passforce' | password_hash('sha512', 'sceretsalt') }}"
+ansible localhost -i inventaire.ini -m debug -a "msg={{ 'password' | password_hash('sha512', 'sceretsalt') }}"
 
 #Doing an action to a remote host via Ansible (where "inventaire.ini" has the list of nodes)
 ansible -i inventaire.ini -m raw -a "yum install -y 'example'" 'hostname' --user 'username' --ask-pass
