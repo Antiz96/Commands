@@ -4,6 +4,9 @@ ansible localhost -i inventaire.ini -m debug -a "msg={{ 'password' | password_ha
 #Create the ansible user on all nodes contained in "inventaire.ini"
 ansible -i inventaire.ini -m user -a 'name=ansible password=encryptedchain' --user username --ask-pass all
 
+#Give ansible user sudo rights on all nodes contained in "inventaire.ini"
+ansible -i inventaire.ini -m user -a 'name=ansible groups=wheel append=yes ' --user root --ask-pass all
+
 #Doing an action to a specific remote host via Ansible (where "inventaire.ini" has the list of nodes)
 ansible -i inventaire.ini -m raw -a "yum install -y example" hostname --user username --ask-pass
 
