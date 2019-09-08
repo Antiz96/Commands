@@ -1,3 +1,9 @@
+#Create Virtualenv
+virtualenv ansible
+
+#Go into your virtualenv
+source ansible/bin/active
+
 #Generate a crypted password for ansible user to deploy on nodes
 ansible localhost -i inventaire.ini -m debug -a "msg={{ 'password' | password_hash('sha512', 'secretsalt') }}"
 
