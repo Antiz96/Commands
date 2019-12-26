@@ -8,3 +8,9 @@ for i in `ls /path/`; do chown root:root /path/$i; done
 
 #Example with a "cp" command combined with a "grep" command
 for i in `ls /path/ | grep pdf`; do cp /path/$i /destdir/; done
+
+
+#If there's still too muche files, just go with something like this to do them 1 by 1
+find /nfs/compose_services/GMC-Service/WorkingDirectory -name "*" > /opt/copy.txt
+
+while read line; do cp -rp "$line" /backup/; done < /opt/copy.txt
