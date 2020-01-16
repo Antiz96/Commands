@@ -1,1 +1,1 @@
-cat filename | grep -v "^$"
+grep -v "^$" filename
