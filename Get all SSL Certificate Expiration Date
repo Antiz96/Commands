@@ -1,0 +1,3 @@
+#Gives you the name of the file, the Issuer of the certificate, its expiration date and its subject
+
+for i in $(ls -1R /path/to/certificates/*.{crt,cer,pem} 2>/dev/null) ; do echo "$i" && openssl x509 -text -noout -in $i | egrep -i "not after :|subject:|issuer:" && echo "" ; done
