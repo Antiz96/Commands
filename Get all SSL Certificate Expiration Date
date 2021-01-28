@@ -1,3 +1,4 @@
 #Gives you the name of the file, the Issuer of the certificate, its expiration date and its subject
+#Change directory to the path that contains your certificates
 
-for i in $(ls -1R /path/to/certificates/*.{crt,cer,pem} 2>/dev/null) ; do echo "$i" && openssl x509 -text -noout -in $i | egrep -i "not after :|subject:|issuer:" && echo "" ; done
+for i in $(ls -1R `pwd`/*.{crt,cer,pem} 2>/dev/null) ; do echo "$i" && openssl x509 -text -noout -in $i | egrep -i "not after :|subject:|issuer:" && echo "" ; done
